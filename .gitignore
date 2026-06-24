@@ -1,0 +1,11 @@
+node_modules/
+dist/
+tmp/
+.next/
+.vercel/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+app/api/run-command/
+
