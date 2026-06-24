@@ -1,8 +1,35 @@
+import Link from "next/link";
 import { CheckoutButton } from "@/components/CheckoutButton";
 
-export default function PricingPage() {
+type PricingPageProps = {
+  searchParams?: Promise<{
+    checkout?: string;
+    reason?: string;
+  }>;
+};
+
+export default async function PricingPage({ searchParams }: PricingPageProps) {
+  const params = await searchParams;
+  const isSuccess = params?.checkout === "success";
+  const isSubscriptionRequired = params?.reason === "subscription-required";
+
   return (
     <main className="page">
+      {isSuccess && (
+        <div className="notice" style={{ marginBottom: "24px" }}>
+          <strong>Subscription Activated!</strong> Thank you for your support. Your payment has been processed successfully and your account is being updated.
+          <Link href="/dashboard" className="textLink" style={{ marginLeft: "10px", textDecoration: "underline" }}>
+            Go to your Dashboard →
+          </Link>
+        </div>
+      )}
+
+      {isSubscriptionRequired && (
+        <div className="notice warning" style={{ marginBottom: "24px" }}>
+          An active subscription is required to access the dashboard and draw features. Please choose one of the plans below to subscribe.
+        </div>
+      )}
+
       <section className="sectionTitle">
         <div>
           <span className="eyebrow">Subscription</span>
