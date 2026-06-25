@@ -24,6 +24,9 @@ async function upsertSubscription(subscription: StripeSubscriptionWithPeriod) {
 
   if (!userId || !plan) return;
 
+  const periodStart = subscription.current_period_start ?? subscription.items.data[0]?.current_period_start;
+  const periodEnd = subscription.current_period_end ?? subscription.items.data[0]?.current_period_end;
+
   await service.from("subscriptions").upsert(
     {
       user_id: userId,
@@ -32,11 +35,11 @@ async function upsertSubscription(subscription: StripeSubscriptionWithPeriod) {
       plan,
       status: subscription.status,
       currency: subscription.currency,
-      current_period_start: subscription.current_period_start
-        ? new Date(subscription.current_period_start * 1000).toISOString()
+      current_period_start: periodStart
+        ? new Date(periodStart * 1000).toISOString()
         : null,
-      current_period_end: subscription.current_period_end
-        ? new Date(subscription.current_period_end * 1000).toISOString()
+      current_period_end: periodEnd
+        ? new Date(periodEnd * 1000).toISOString()
         : null,
       cancel_at_period_end: subscription.cancel_at_period_end
     },
