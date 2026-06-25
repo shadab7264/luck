@@ -112,7 +112,6 @@ select option {
   justify-content: flex-end;
 }
 
-.navLinks a,
 .statusPill {
   min-height: 38px;
   gap: 8px;
@@ -121,6 +120,33 @@ select option {
   color: var(--muted);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line);
+}
+
+.navLinks a {
+  min-height: 38px;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 0 12px;
+  color: var(--muted);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.navLinks a:hover {
+  color: var(--ink);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-color: rgba(111, 231, 192, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(111, 231, 192, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.navLinks a:active {
+  transform: translateY(0);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
 }
 
 .page {
@@ -182,12 +208,103 @@ select option {
   font-weight: 850;
   color: #08110f;
   background: linear-gradient(135deg, var(--gold), var(--mint));
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(111, 231, 192, 0.15);
+}
+
+.button:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 25px rgba(111, 231, 192, 0.35);
+  filter: brightness(1.05);
+}
+
+.button:active {
+  transform: translateY(0);
+  filter: brightness(0.95);
 }
 
 .button.secondary {
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.button.secondary:hover {
+  color: var(--ink);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-color: rgba(111, 231, 192, 0.45);
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 25px rgba(111, 231, 192, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.button.secondary:active {
+  transform: translateY(0);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
+}
+
+.header-btn-settings {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  color: var(--muted);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.header-btn-settings:hover {
+  color: var(--gold);
+  border-color: rgba(242, 191, 93, 0.4);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(242, 191, 93, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.header-btn-settings:active {
+  transform: translateY(0);
+}
+
+.header-btn-profile {
+  min-height: 38px;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 0 12px;
+  color: var(--ink);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.header-btn-profile:hover,
+.header-btn-profile.active {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-color: rgba(111, 231, 192, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(111, 231, 192, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.header-btn-profile:active {
+  transform: translateY(0);
 }
 
 .panel,

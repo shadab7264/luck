@@ -51,27 +51,7 @@ export default function UserMenu({ userName }: { userName: string }) {
       <button
         onClick={openPortal}
         title="Manage Subscription"
-        style={{
-          width: "38px",
-          height: "38px",
-          borderRadius: "8px",
-          color: "var(--muted)",
-          background: "rgba(255, 255, 255, 0.05)",
-          border: "1px solid var(--line)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          transition: "all 0.2s ease"
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = "var(--gold)";
-          e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = "var(--muted)";
-          e.currentTarget.style.background = "rgba(255, 255, 255, 0.05)";
-        }}
+        className="header-btn-settings"
       >
         <Settings size={18} />
       </button>
@@ -80,21 +60,7 @@ export default function UserMenu({ userName }: { userName: string }) {
       <div ref={menuRef} style={{ position: "relative", display: "inline-block" }}>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          style={{
-            minHeight: "38px",
-            gap: "8px",
-            borderRadius: "8px",
-            padding: "0 12px",
-            color: "var(--ink)",
-            background: isOpen ? "rgba(255, 255, 255, 0.08)" : "rgba(255, 255, 255, 0.05)",
-            border: "1px solid var(--line)",
-            display: "flex",
-            alignItems: "center",
-            fontWeight: 600,
-            cursor: "pointer",
-            fontFamily: "inherit",
-            fontSize: "inherit"
-          }}
+          className={`header-btn-profile ${isOpen ? "active" : ""}`}
         >
           <User size={16} style={{ color: "var(--mint)" }} />
           <span style={{ maxWidth: "120px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
