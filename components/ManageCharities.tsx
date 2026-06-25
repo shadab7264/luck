@@ -71,13 +71,18 @@ export default function ManageCharities({ initialCharities }: { initialCharities
             <button
               key={filter}
               onClick={() => setStatusFilter(filter)}
-              className={`button secondary ${statusFilter === filter ? "" : "inactive"}`}
+              className={`button secondary ${statusFilter === filter ? "active-filter" : ""}`}
               style={{
                 minHeight: "38px",
                 padding: "0 12px",
                 textTransform: "capitalize",
-                background: statusFilter === filter ? "linear-gradient(135deg, var(--gold), var(--mint))" : "rgba(255, 255, 255, 0.05)",
-                color: statusFilter === filter ? "#08110f" : "var(--muted)"
+                transition: "all 0.25s ease",
+                ...(statusFilter === filter ? {
+                  background: "linear-gradient(135deg, var(--gold), var(--mint))",
+                  color: "#08110f",
+                  borderColor: "transparent",
+                  boxShadow: "0 4px 12px rgba(111, 231, 192, 0.25)"
+                } : {})
               }}
             >
               {filter}
